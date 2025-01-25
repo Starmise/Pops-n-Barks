@@ -9,6 +9,8 @@ public class BubblePlayerController : MonoBehaviour
     private Rigidbody2D rb; // Rigidbody2D component for physics
     private InputAction moveAction; // Reference to the Move action
 
+    BubbleManager bubbleManager;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,6 +21,11 @@ public class BubblePlayerController : MonoBehaviour
 
         // Enable the action map
         bubbleActionMap.Enable();
+    }
+
+    private void Start()
+    {
+        bubbleManager = FindObjectOfType<BubbleManager>();
     }
 
     private void OnEnable()
@@ -50,7 +57,7 @@ public class BubblePlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Move the player based on input
-        Vector2 movement = movementInput * moveSpeed * Time.fixedDeltaTime;
+        Vector2 movement = movementInput * bubbleManager.currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
     }
 }
