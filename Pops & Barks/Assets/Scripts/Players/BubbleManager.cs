@@ -4,11 +4,11 @@ using System.Collections;
 public class BubbleManager : MonoBehaviour
 {
     public float defaultSpeed = 5f; // Default speed of the bubble
-    public float boostedSpeed = 8f; // Speed when the butterfly power-up is active
+    public float boostedSpeed = 20f; // Speed when the butterfly power-up is active
     public float powerUpDuration = 10f; // Duration of power-ups in seconds
 
-    private float currentSpeed; // Current speed of the bubble
-    private int maxHealth = 1; // Maximum health of the bubble
+    public float currentSpeed; // Current speed of the bubble
+    [SerializeField] private int maxHealth = 1; // Maximum health of the bubble
     private int currentHealth; // Current health of the bubble
     private bool isGameOver = false; // Flag for game-over state
 
@@ -61,6 +61,7 @@ public class BubbleManager : MonoBehaviour
         }
 
         healthPowerUpCoroutine = StartCoroutine(HealthPowerUpRoutine());
+        Debug.Log("La vida de la burbujas es: " + currentHealth);
     }
 
     private IEnumerator SpeedPowerUpRoutine()
