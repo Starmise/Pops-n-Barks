@@ -42,7 +42,7 @@ public class PushableSprite : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Detect Doggo player and get reference to its Rigidbody
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Doggo"))
         {
             doggoTransform = other.transform;
             doggoRb = other.GetComponent<Rigidbody2D>();
@@ -52,7 +52,7 @@ public class PushableSprite : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // Clear Doggo reference when it leaves the trigger area
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Doggo"))
         {
             doggoTransform = null;
             doggoRb = null;
