@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Scratch",
+                    "name": "Scratch Attack",
                     "type": "Button",
                     "id": "29ae6fde-9295-4cb6-8141-d2c499fff264",
                     "expectedControlType": "Button",
@@ -72,7 +72,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Scratch",
+                    "action": "Scratch Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
