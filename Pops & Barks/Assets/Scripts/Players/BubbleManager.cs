@@ -1,25 +1,27 @@
 using UnityEngine;
 using System.Collections;
 
-public class BubbleManager : MonoBehaviour
+public class BubbleManager : MonoBehaviour, IStunnable
 {
     public float defaultSpeed = 5f; // Default speed of the bubble
     public float boostedSpeed = 20f; // Speed when the butterfly power-up is active
     public float powerUpDuration = 10f; // Duration of power-ups in seconds
 
     public float currentSpeed; // Current speed of the bubble
-    [SerializeField] private int maxHealth = 1; // Maximum health of the bubble
-    private int currentHealth; // Current health of the bubble
+    [SerializeField] private int maxHealth = 2; // Maximum health of the bubble
+    public int currentHealth; // Current health of the bubble
     private bool isGameOver = false; // Flag for game-over state
 
     private Coroutine speedPowerUpCoroutine;
     private Coroutine healthPowerUpCoroutine;
 
+    private bool isStunned = false;
+
     private void Start()
     {
         // Initialize values
         currentSpeed = defaultSpeed;
-        currentHealth = maxHealth;
+        currentHealth = 1;
     }
 
     private void Update()
@@ -78,6 +80,23 @@ public class BubbleManager : MonoBehaviour
         yield return new WaitForSeconds(powerUpDuration);
         maxHealth--;
         currentHealth = Mathf.Min(currentHealth, maxHealth); // Adjust current health if max decreases
+    }
+
+    public void Stun(float duration)
+    {
+        if (isStunned) return;
+
+        StartCoroutine(StunCoroutine(duration));
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        isStunned = true;
+        Debug.Log("Bubble is stunned!");
+        currentSpeed = 0f; // Stop the bubble from moving
+        yield return new WaitForSeconds(duration);
+        isStunned = false;
+        currentSpeed = defaultSpeed; // Resume the bubble's movement
     }
 
     private void GameOver()
