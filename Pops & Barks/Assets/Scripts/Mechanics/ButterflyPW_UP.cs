@@ -5,7 +5,8 @@ using UnityEngine;
 public class ButterflyPW_UP : MonoBehaviour
 {
     BubbleManager bubbleManager;
-    private PWUpsManager pwUpsManager;
+    public PWUpsManager pwUpsManager;
+    public BubblePlayerController spriteChanger;
 
     /*
      * Solo puede haber un powerUp a la vez en escena, se deben generar en puntos de spawn
@@ -21,10 +22,15 @@ public class ButterflyPW_UP : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        bubbleManager = collision.collider.GetComponent<BubbleManager>();
         bubbleManager.ActivateButterflyPowerUp();
 
         pwUpsManager.NotifyPowerUpCollected();
 
+        spriteChanger = collision.collider.GetComponent<BubblePlayerController>();
+        spriteChanger.ChangeSpriteButter();
+
         Destroy(gameObject);
     }
+
 }

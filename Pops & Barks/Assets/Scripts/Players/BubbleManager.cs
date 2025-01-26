@@ -16,12 +16,15 @@ public class BubbleManager : MonoBehaviour, IStunnable
     private Coroutine healthPowerUpCoroutine;
 
     private bool isStunned = false;
+    public SpriteRenderer spriteRenderer;
+    public Sprite defaultSprite;
 
     private void Start()
     {
         // Initialize values
         currentSpeed = defaultSpeed;
         currentHealth = 1;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -35,6 +38,8 @@ public class BubbleManager : MonoBehaviour, IStunnable
     public void TakeDamage()
     {
         if (isGameOver)
+            return;
+        if (healthPowerUpCoroutine != null)
             return;
 
         currentHealth--;
@@ -71,6 +76,7 @@ public class BubbleManager : MonoBehaviour, IStunnable
         currentSpeed = boostedSpeed;
         yield return new WaitForSeconds(powerUpDuration);
         currentSpeed = defaultSpeed;
+        spriteRenderer.sprite = defaultSprite;
     }
 
     private IEnumerator HealthPowerUpRoutine()
@@ -80,6 +86,7 @@ public class BubbleManager : MonoBehaviour, IStunnable
         yield return new WaitForSeconds(powerUpDuration);
         maxHealth--;
         currentHealth = Mathf.Min(currentHealth, maxHealth); // Adjust current health if max decreases
+        spriteRenderer.sprite = defaultSprite;
     }
 
     public void Stun(float duration)
