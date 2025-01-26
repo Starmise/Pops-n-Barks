@@ -148,6 +148,8 @@ MonoBehaviour:
   defaultSpeed: 5
   boostedSpeed: 8
   powerUpDuration: 10
+  currentSpeed: 0
+  maxHealth: 1
 --- !u!58 &52099587
 CircleCollider2D:
   m_ObjectHideFlags: 0
