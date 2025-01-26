@@ -10,6 +10,10 @@ public class BubblePlayerController : MonoBehaviour
     private InputAction moveAction; // Reference to the Move action
 
     BubbleManager bubbleManager;
+    public Sprite newSpritebUTTER;
+    public Sprite newSpriteElephant;
+
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -26,6 +30,40 @@ public class BubblePlayerController : MonoBehaviour
     private void Start()
     {
         bubbleManager = FindObjectOfType<BubbleManager>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Comprueba que el componente SpriteRenderer exista
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("No se encontró un SpriteRenderer en este objeto.");
+        }
+    }
+
+    public void ChangeSpriteButter()
+    {
+        // Cambia el sprite solo si el nuevo sprite está asignado
+        if (newSpritebUTTER != null && spriteRenderer != null)
+        {
+            spriteRenderer.sprite = newSpritebUTTER;
+        }
+        else
+        {
+            Debug.LogWarning("El nuevo sprite no está asignado o falta el SpriteRenderer.");
+        }
+    }
+
+    public void ChangeSpriteEle()
+    {
+        // Cambia el sprite solo si el nuevo sprite está asignado
+        if (newSpriteElephant != null && spriteRenderer != null)
+        {
+            spriteRenderer.sprite = newSpriteElephant;
+        }
+        else
+        {
+            Debug.LogWarning("El nuevo sprite no está asignado o falta el SpriteRenderer.");
+        }
     }
 
     private void OnEnable()
