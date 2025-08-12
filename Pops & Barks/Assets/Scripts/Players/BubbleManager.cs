@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BubbleManager : MonoBehaviour, IStunnable
 {
@@ -110,6 +111,6 @@ public class BubbleManager : MonoBehaviour, IStunnable
     {
         isGameOver = true;
         Debug.Log("Game Over! The bubble is destroyed.");
-        // Add game-over logic here (e.g., disable movement, show UI, etc.)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
     }
 }

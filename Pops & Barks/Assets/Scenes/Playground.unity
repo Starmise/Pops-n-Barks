@@ -225,9 +225,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4545629610574387350, guid: adeb83dbdaa513442ba03df93f16e80a, type: 3}
   m_PrefabInstance: {fileID: 3336661450344287581}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1740915095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8452549261882505142, guid: 080ea2f0e0de4a648ae4a5f7fad5bb37, type: 3}
+  m_PrefabInstance: {fileID: 6213703024448744094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59eb4ace95b96a43a85e0f0f78c0c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1740915098 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2737338119996065155, guid: 080ea2f0e0de4a648ae4a5f7fad5bb37, type: 3}
+  m_PrefabInstance: {fileID: 6213703024448744094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1902768363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3856082291222893695, guid: f8e4c3a5bf0f7544c94d6d5afab24938, type: 3}
+  m_PrefabInstance: {fileID: 6804409287241928710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1902768364 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3730849972424359523, guid: f8e4c3a5bf0f7544c94d6d5afab24938, type: 3}
   m_PrefabInstance: {fileID: 6804409287241928710}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &233299864956160843
@@ -245,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 744053429839985156, guid: 4f415bece344b4a49b21bcbd36c3f46e, type: 3}
       propertyPath: mapBounds
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1902768364}
     - target: {fileID: 1922442268717511728, guid: 4f415bece344b4a49b21bcbd36c3f46e, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -478,6 +499,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983718262965040424, guid: 06590350c2fc8d24aa746fa15f019f5c, type: 3}
+      propertyPath: bubble
+      value: 
+      objectReference: {fileID: 1740915095}
+    - target: {fileID: 6983718262965040424, guid: 06590350c2fc8d24aa746fa15f019f5c, type: 3}
       propertyPath: attackHandler
       value: 
       objectReference: {fileID: 3605784831202353397}
@@ -560,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 7550640696100780418, guid: 2a97c3b928ebc084c9940e451f81ae6f, type: 3}
       propertyPath: mapBounds
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1902768364}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -630,6 +655,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: _BubblePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8452549261882505142, guid: 080ea2f0e0de4a648ae4a5f7fad5bb37, type: 3}
+      propertyPath: defaultSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 74c71a5a7abc20348a858c7f10e59940, type: 3}
+    - target: {fileID: 8452549261882505142, guid: 080ea2f0e0de4a648ae4a5f7fad5bb37, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1740915098}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
